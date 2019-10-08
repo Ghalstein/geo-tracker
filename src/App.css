@@ -7,7 +7,7 @@
 }
 
 .season-display {
-  padding: 10px;
+  padding: 5px;
   border: 6px solid #000000;
 }
 
@@ -23,8 +23,8 @@
 
 .Spring {
   background: white;
-  color: lightblue;
-  border: lightblue;
+  color: lightgreen;
+  border-color: lightgreen;
 }
 
 .Summer {
