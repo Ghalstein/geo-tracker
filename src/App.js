@@ -3,21 +3,30 @@ import "./App.css";
 
 class App extends React.Component {
   state = {
-    latitude: null
+    latitude: null,
+    errorMessage: ''
   };
 
   render() {
+    // function for asking user for geo location
     window.navigator.geolocation.getCurrentPosition(
       position => {
         this.setState({
           latitude: position.coords.latitude
         });
       },
-      err => console.log(err)
+      err => {
+        this.setState({errorMessage: err.message});
+      }
     );
+
     return (
       <div className="App">
-        <h1>Latitude: {this.state.latitude}</h1>
+        {this.state.latitude ?
+          <h1>Latitude: {this.state.latitude}</h1> 
+        :
+          <h1> Error: {this.state.errorMessage}</h1>
+        }
       </div>
     );
   }
