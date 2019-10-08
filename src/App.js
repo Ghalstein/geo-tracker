@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import SeasonDisplay from "./components/SeasonDisplay";
+import Loader from "./components/Loader";
 
 class App extends React.Component {
   state = {
@@ -33,7 +34,7 @@ class App extends React.Component {
         ) : this.state.errorMessage ? (
           <h1> Error: {this.state.errorMessage}</h1>
         ) : (
-          <h1> Loading...</h1>
+          <Loader />
         )}
       </div>
     );
