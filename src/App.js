@@ -4,11 +4,10 @@ import "./App.css";
 class App extends React.Component {
   state = {
     latitude: null,
-    errorMessage: ''
+    errorMessage: ""
   };
 
-  render() {
-    // function for asking user for geo location
+  componentDidMount = () => {
     window.navigator.geolocation.getCurrentPosition(
       position => {
         this.setState({
@@ -16,17 +15,23 @@ class App extends React.Component {
         });
       },
       err => {
-        this.setState({errorMessage: err.message});
+        this.setState({ errorMessage: err.message });
       }
     );
+  };
+
+  render() {
+    // function for asking user for geo location
 
     return (
       <div className="App">
-        {this.state.latitude ?
-          <h1>Latitude: {this.state.latitude}</h1> 
-        :
+        {this.state.latitude ? (
+          <h1> Latitude: {this.state.latitude}</h1>
+        ) : this.state.errorMessage ? (
           <h1> Error: {this.state.errorMessage}</h1>
-        }
+        ) : (
+          <h1> Loading...</h1>
+        )}
       </div>
     );
   }
