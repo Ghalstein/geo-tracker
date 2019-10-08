@@ -4,17 +4,17 @@ import './App.css';
 class App extends React.Component {
 
   state = {
-    lattitude: null
+    latitude: null
   }
 
   render() {
     window.navigator.geolocation.getCurrentPosition(
-      (position) => console.log(position),
+      position => this.setState({lattitude: position.coords.latitude}),
       (err) => console.log(err)
     );
     return ( 
       <div className = "App" >
-        Lattitude: {this.state.lattitude}
+        Latitude: {this.state.latitude}
       </div>
     );
   };
