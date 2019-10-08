@@ -29,13 +29,13 @@ const getSeason = (lat, month) => {
 };
 
 const SeasonDisplay = props => {
+  let text = `The season is currently ${getSeason(
+    props.latitude,
+    new Date().getMonth()
+  )} where you reside.`;
   return (
-    <div>
-      <h1>
-        The season is currently{" "}
-        {getSeason(props.latitude, new Date().getMonth())}
-        {""} where you reside.
-      </h1>
+    <div className="season-display">
+      <h1>{text}</h1>
     </div>
   );
 };
